@@ -85,6 +85,21 @@ class FanTest < ActiveSupport::TestCase
     assert_equal "Ross Edfortlieber", fan.nickname
   end
 
-  should belong_to :location 
+  should belong_to :location
+
+
+    test "all returns fans ordered alphabetically by name" do
+      f1 = Fan.create(name: "mildred", email: "thing@gmail.com")
+      f2 = Fan.create(name: "albert", email: "otherthing@gmail.com")
+      f3 = Fan.create(name: "Zedford", email: "samething@gmail.com")
+
+      names = Fan.all.map do |fan|
+        fan.name
+      end
+
+      assert_equal ["albert", "mildred", "Zedford"], names
+
+
+    end
 
 end

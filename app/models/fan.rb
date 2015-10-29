@@ -14,5 +14,5 @@ class Fan < ActiveRecord::Base
     "#{name}lieber"
   end
 
-  
+
 end
